@@ -6,24 +6,24 @@
   "compatibility_flags": ["nodejs_compat"],
   "migrations": [
     {
-      "tag": "v1",
-      "new_classes": ["GoogleMcpRemote"]
+      "new_sqlite_classes": ["MyMCP"],
+      "tag": "v1"
     }
   ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "MyMCP",
+        "name": "MCP_OBJECT"
+      }
+    ]
+  },
   "kv_namespaces": [
     {
       "binding": "OAUTH_KV",
       "id": "8c2915e45a174d7ebe331fe9a426d9fc"
     }
   ],
-  "durable_objects": {
-    "bindings": [
-      {
-        "class_name": "GoogleMcpRemote",
-        "name": "GOOGLE_MCP_REMOTE"
-      }
-    ]
-  },
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1

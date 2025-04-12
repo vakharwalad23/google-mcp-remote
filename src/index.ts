@@ -5,7 +5,7 @@ import { z } from "zod";
 import { GoogleHandler } from "./auth-handler";
 import { Props } from "./utils/upstream-utils";
 
-export class GoogleMcpRemote extends McpAgent<Props, Env> {
+export class MyMCP extends McpAgent<Props, Env> {
   server = new McpServer({
     name: "Google OAuth Proxy Demo",
     version: "1.0.0",
@@ -26,8 +26,8 @@ export class GoogleMcpRemote extends McpAgent<Props, Env> {
 
 export default new OAuthProvider({
   apiRoute: "/sse",
-  apiHandler: GoogleMcpRemote.mount("/sse") as unknown as any,
-  defaultHandler: GoogleHandler as unknown as any,
+  apiHandler: MyMCP.mount("/sse") as any,
+  defaultHandler: GoogleHandler as any,
   authorizeEndpoint: "/authorize",
   tokenEndpoint: "/token",
   clientRegistrationEndpoint: "/register",
