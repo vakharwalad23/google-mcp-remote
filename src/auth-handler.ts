@@ -110,7 +110,7 @@ app.get("/callback", async (c) => {
   if (!code) {
     return c.text("Missing code", 400);
   }
-  const [accessToken, errResponse] = await fetchUpstreamAuthToken({
+  const [googleAuthTokenResponse, errResponse] = await fetchUpstreamAuthToken({
     upstream_url: "https://oauth2.googleapis.com/token",
     client_id: c.env.GOOGLE_OAUTH_CLIENT_ID,
     client_secret: c.env.GOOGLE_OAUTH_CLIENT_SECRET,
@@ -123,7 +123,7 @@ app.get("/callback", async (c) => {
     "https://www.googleapis.com/oauth2/v3/userinfo",
     {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${googleAuthTokenResponse.access_token}`,
       },
     }
   );
@@ -144,7 +144,9 @@ app.get("/callback", async (c) => {
       sub,
       name,
       email,
-      accessToken,
+      accessToken: googleAuthTokenResponse.access_token,
+      refreshToken: googleAuthTokenResponse.refresh_token,
+      expiresIn: googleAuthTokenResponse.expires_in,
     } as Props,
   });
   return Response.redirect(redirectTo);

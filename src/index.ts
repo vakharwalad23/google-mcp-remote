@@ -3,9 +3,10 @@ import { McpAgent } from "agents/mcp";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { GoogleHandler } from "./auth-handler";
-import { Props } from "./utils/upstream-utils";
+import type { Props } from "./utils/upstream-utils";
+import { registerAllTools } from "./tools";
 
-export class MyMCP extends McpAgent<Props, Env> {
+export class MyMCP extends McpAgent<Env, unknown, Props> {
   server = new McpServer({
     name: "Google OAuth Proxy Demo",
     version: "1.0.0",
@@ -14,13 +15,14 @@ export class MyMCP extends McpAgent<Props, Env> {
   async init() {
     // Hello, world!
     this.server.tool(
-      "add",
-      "Add two numbers the way only MCP can",
-      { a: z.number(), b: z.number() },
-      async ({ a, b }) => ({
-        content: [{ type: "text", text: String(a + b) }],
+      "greet",
+      "Greet the use with a message",
+      { name: z.string() },
+      async ({ name }) => ({
+        content: [{ type: "text", text: `Hello, ${name}!` }],
       })
     );
+    registerAllTools(this.server, this.props);
   }
 }
 

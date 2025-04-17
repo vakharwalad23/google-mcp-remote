@@ -64,7 +64,7 @@ export async function fetchUpstreamAuthToken({
   client_secret: string;
   redirect_uri: string;
   client_id: string;
-}): Promise<[string, null] | [null, Response]> {
+}): Promise<[GoogleOAuthTokenResponse, null] | [null, Response]> {
   if (!code) {
     return [null, new Response("Missing code", { status: 400 })];
   }
@@ -93,7 +93,7 @@ export async function fetchUpstreamAuthToken({
   if (!accessToken) {
     return [null, new Response("Missing access token", { status: 400 })];
   }
-  return [accessToken, null];
+  return [body, null];
 }
 
 export type Props = {
@@ -101,4 +101,6 @@ export type Props = {
   name: string; // Full name
   email: string; // Email address
   accessToken: string; // Access token for API calls
+  refreshToken?: string; // Optional refresh token
+  expiresIn?: number; // Optional expiration time in seconds
 };
