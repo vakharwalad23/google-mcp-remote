@@ -41,6 +41,9 @@ async function redirectToGoogle(
     "https://www.googleapis.com/auth/drive", // Access Google Drive
     "https://www.googleapis.com/auth/calendar", // Access Google Calendar
     "https://www.googleapis.com/auth/tasks", // Access Google Tasks
+    "https://www.googleapis.com/auth/youtube.readonly", // Read YouTube data
+    "https://www.googleapis.com/auth/contacts.readonly", // Read Google Contacts
+    "https://www.googleapis.com/auth/contacts", // Manage Google Contacts
   ].join(" ");
   return new Response(null, {
     status: 302,
