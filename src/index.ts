@@ -8,7 +8,7 @@ import { registerAllTools } from "./tools";
 
 export class MyMCP extends McpAgent<Env, unknown, Props> {
   server = new McpServer({
-    name: "Google OAuth Proxy Demo",
+    name: "Google MCP Server - Remote",
     version: "1.0.0",
   });
 
