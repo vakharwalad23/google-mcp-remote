@@ -54,6 +54,15 @@ A [Cloudflare Workers-based MCP server](https://blog.cloudflare.com/remote-model
    - Set up OAuth 2.0 credentials (Client ID and Client Secret)
    - Enable the APIs you need (Gmail, Calendar, Drive, Tasks, YouTube, People/Contacts)
    - Add authorized JavaScript origins and redirect URIs for your Cloudflare Worker
+   - Redirect URI should be in the format:
+
+     ```
+     Deployed URL + /callback
+      https://your-project.your-username.workers.dev/callback
+
+     For local testing:
+      http://localhost:8788/callback
+     ```
 
 2. **Cloudflare Account**:
    - Sign up for a [Cloudflare account](https://dash.cloudflare.com/sign-up) if you don't have one
