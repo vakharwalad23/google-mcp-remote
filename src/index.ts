@@ -26,9 +26,25 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
   }
 }
 
+const mcpHandler = {
+  fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/sse" || url.pathname === "/sse/message") {
+      return MyMCP.serveSSE("/sse").fetch(request, env, ctx);
+    }
+
+    if (url.pathname === "/mcp") {
+      return MyMCP.serve("/mcp").fetch(request, env, ctx);
+    }
+
+    return new Response("Not found", { status: 404 });
+  },
+};
+
 export default new OAuthProvider({
-  apiRoute: "/sse",
-  apiHandler: MyMCP.mount("/sse") as any,
+  apiRoute: ["/sse", "/mcp"],
+  apiHandler: mcpHandler as any,
   defaultHandler: GoogleHandler as any,
   authorizeEndpoint: "/authorize",
   tokenEndpoint: "/token",

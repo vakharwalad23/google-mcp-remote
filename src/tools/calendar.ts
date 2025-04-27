@@ -16,7 +16,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to list upcoming events (existing)
   server.tool(
-    "calendar.listEvents",
+    "calendar_listEvents",
     "List upcoming calendar events",
     {
       timeMin: z
@@ -127,7 +127,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to create an event
   server.tool(
-    "calendar.createEvent",
+    "calendar_createEvent",
     "Create a new calendar event",
     {
       summary: z.string().describe("Title or summary of the event"),
@@ -219,7 +219,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to get a specific event
   server.tool(
-    "calendar.getEvent",
+    "calendar_getEvent",
     "Get details of a specific calendar event",
     {
       eventId: z.string().describe("The ID of the event to retrieve"),
@@ -277,7 +277,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to update an event
   server.tool(
-    "calendar.updateEvent",
+    "calendar_updateEvent",
     "Update an existing calendar event",
     {
       eventId: z.string().describe("The ID of the event to update"),
@@ -367,7 +367,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to delete an event
   server.tool(
-    "calendar.deleteEvent",
+    "calendar_deleteEvent",
     "Delete a calendar event",
     {
       eventId: z.string().describe("The ID of the event to delete"),
@@ -426,7 +426,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to find free time slots
   server.tool(
-    "calendar.findFreeTime",
+    "calendar_findFreeTime",
     "Find free time slots across specified calendars",
     {
       startTime: z
@@ -564,7 +564,7 @@ export function registerCalendarTools(server: McpServer, props: Props) {
 
   // Tool to list user's calendars
   server.tool(
-    "calendar.listCalendars",
+    "calendar_listCalendars",
     "List all calendars the user has access to",
     {}, // No parameters needed
     async () => {

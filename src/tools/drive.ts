@@ -16,7 +16,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to list files (existing)
   server.tool(
-    "drive.listFiles",
+    "drive_listFiles",
     "List files from Google Drive. Default query is 'trashed = false'.",
     {
       query: z
@@ -97,7 +97,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to get file content
   server.tool(
-    "drive.getFileContent",
+    "drive_getFileContent",
     "Get the content of a file. Exports Google Docs/Sheets as text/csv.",
     {
       fileId: z
@@ -198,7 +198,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to create a file
   server.tool(
-    "drive.createFile",
+    "drive_createFile",
     "Create a new file (text or Google Doc/Sheet/etc.)",
     {
       name: z.string().describe("The name of the new file"),
@@ -293,7 +293,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to update file content (only non-Google Apps types)
   server.tool(
-    "drive.updateFileContent",
+    "drive_updateFileContent",
     "Update the content of an existing file (not applicable for Google Docs/Sheets).",
     {
       fileId: z.string().describe("The ID of the file to update"),
@@ -357,7 +357,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to delete a file (move to trash or permanently)
   server.tool(
-    "drive.deleteFile",
+    "drive_deleteFile",
     "Delete a file (moves to trash by default).",
     {
       fileId: z.string().describe("The ID of the file to delete"),
@@ -412,7 +412,7 @@ export function registerDriveTools(server: McpServer, props: Props) {
 
   // Tool to share a file
   server.tool(
-    "drive.shareFile",
+    "drive_shareFile",
     "Share a file with a user.",
     {
       fileId: z.string().describe("The ID of the file to share"),

@@ -15,7 +15,7 @@ export function registerYouTubeTools(server: McpServer, props: Props) {
 
   // Tool to search for videos
   server.tool(
-    "youtube.searchVideos",
+    "youtube_searchVideos",
     "Search for YouTube videos based on a query.",
     {
       query: z.string().min(1).describe("The search query term(s)"),
@@ -109,7 +109,7 @@ export function registerYouTubeTools(server: McpServer, props: Props) {
 
   // Tool to get video details
   server.tool(
-    "youtube.getVideoDetails",
+    "youtube_getVideoDetails",
     "Get detailed information about a specific YouTube video.",
     {
       videoId: z.string().min(1).describe("The ID of the YouTube video"),

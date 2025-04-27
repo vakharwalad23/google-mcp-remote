@@ -70,7 +70,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to list task lists (Updated formatting)
   server.tool(
-    "tasks.listTaskLists",
+    "tasks_listTaskLists",
     "List all task lists",
     {}, // No parameters
     async () => {
@@ -109,7 +109,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to list tasks within a task list
   server.tool(
-    "tasks.listTasks",
+    "tasks_listTasks",
     "List tasks within a specific task list.",
     {
       taskListId: z
@@ -220,7 +220,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to get a specific task
   server.tool(
-    "tasks.getTask",
+    "tasks_getTask",
     "Get details of a specific task.",
     {
       taskId: z.string().describe("The ID of the task to retrieve"),
@@ -283,7 +283,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to create a task
   server.tool(
-    "tasks.createTask",
+    "tasks_createTask",
     "Create a new task.",
     {
       title: z.string().min(1).describe("The title of the task"),
@@ -340,7 +340,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to update a task (uses helper)
   server.tool(
-    "tasks.updateTask",
+    "tasks_updateTask",
     "Update an existing task (title, notes, due date, status).",
     {
       taskId: z.string().describe("The ID of the task to update"),
@@ -407,7 +407,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to complete a task (uses helper)
   server.tool(
-    "tasks.completeTask",
+    "tasks_completeTask",
     "Mark a task as completed.",
     {
       taskId: z.string().describe("The ID of the task to complete"),
@@ -467,7 +467,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to delete a task
   server.tool(
-    "tasks.deleteTask",
+    "tasks_deleteTask",
     "Delete a task permanently.",
     {
       taskId: z.string().describe("The ID of the task to delete"),
@@ -522,7 +522,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to create a task list
   server.tool(
-    "tasks.createTaskList",
+    "tasks_createTaskList",
     "Create a new task list.",
     {
       title: z.string().min(1).describe("The title for the new task list"),
@@ -559,7 +559,7 @@ export function registerTasksTools(server: McpServer, props: Props) {
 
   // Tool to delete a task list
   server.tool(
-    "tasks.deleteTaskList",
+    "tasks_deleteTaskList",
     "Delete a task list permanently. This also deletes all tasks within it.",
     {
       taskListId: z

@@ -15,7 +15,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to send an email (Updated)
   server.tool(
-    "gmail.sendEmail",
+    "gmail_sendEmail",
     "Send an email to specified recipients",
     {
       to: z
@@ -87,7 +87,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to list emails (Updated)
   server.tool(
-    "gmail.listEmails",
+    "gmail_listEmails",
     "List emails with optional query, labels, and limits. Returns a summary including IDs.",
     {
       query: z
@@ -209,7 +209,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to get a specific email's content
   server.tool(
-    "gmail.getEmail",
+    "gmail_getEmail",
     "Get the full content of a specific email by its ID.",
     {
       messageId: z.string().describe("The ID of the email message to retrieve"),
@@ -315,7 +315,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to create a draft email
   server.tool(
-    "gmail.draftEmail",
+    "gmail_draftEmail",
     "Create a draft email in Gmail.",
     {
       to: z
@@ -387,7 +387,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to delete an email
   server.tool(
-    "gmail.deleteEmail",
+    "gmail_deleteEmail",
     "Delete an email (moves to trash by default).",
     {
       messageId: z.string().describe("The ID of the email message to delete"),
@@ -447,7 +447,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to modify email labels
   server.tool(
-    "gmail.modifyLabels",
+    "gmail_modifyLabels",
     "Add or remove labels from an email.",
     {
       messageId: z.string().describe("The ID of the email message to modify"),
@@ -517,7 +517,7 @@ export function registerGmailTools(server: McpServer, props: Props) {
 
   // Tool to list labels
   server.tool(
-    "gmail.listLabels",
+    "gmail_listLabels",
     "List all available Gmail labels.",
     {}, // No parameters
     async () => {

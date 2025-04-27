@@ -15,7 +15,7 @@ export function registerContactsTools(server: McpServer, props: Props) {
 
   // Tool to list contacts
   server.tool(
-    "contacts.listContacts",
+    "contacts_listContacts",
     "List contacts from the user's Google Contacts.",
     {
       pageSize: z
@@ -80,7 +80,7 @@ export function registerContactsTools(server: McpServer, props: Props) {
 
   // Tool to search contacts
   server.tool(
-    "contacts.searchContacts",
+    "contacts_searchContacts",
     "Search for contacts by name, email, or phone number.",
     {
       query: z.string().min(1).describe("The query string to search for"),
@@ -161,7 +161,7 @@ export function registerContactsTools(server: McpServer, props: Props) {
 
   // Tool to get a specific contact's details
   server.tool(
-    "contacts.getContact",
+    "contacts_getContact",
     "Get detailed information for a specific contact using their resource name.",
     {
       resourceName: z
