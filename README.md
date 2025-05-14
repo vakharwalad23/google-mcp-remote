@@ -1,7 +1,8 @@
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/vakharwalad23-google-mcp-remote-badge.png)](https://mseep.ai/app/vakharwalad23-google-mcp-remote)
 
 # Google MCP Remote
-
+[![Verified on MseeP](https://mseep.ai/badge.svg)](https://mseep.ai/app/fd4f5a90-36d2-47b4-b06b-d8bde98a35ce)
+</br>
 A [Cloudflare Workers-based MCP server](https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/) implementation that provides Google API tools (Gmail, Calendar, Drive, etc.) for the [Model Context Protocol](https://modelcontextprotocol.com/docs/mcp-protocol), designed to integrate seamlessly with AI clients like Claude or Cursor.
 
 > ⚠️ **SECURITY WARNING**: Do not use someone else's deployed instance of this server as it requires access to your Google account and personal data. Always deploy your own instance to maintain control over your data and API access.
