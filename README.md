@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/vakharwalad23-google-mcp-remote-badge.png)](https://mseep.ai/app/vakharwalad23-google-mcp-remote)
+
 # Google MCP Remote
 
 A [Cloudflare Workers-based MCP server](https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/) implementation that provides Google API tools (Gmail, Calendar, Drive, etc.) for the [Model Context Protocol](https://modelcontextprotocol.com/docs/mcp-protocol), designed to integrate seamlessly with AI clients like Claude or Cursor.
