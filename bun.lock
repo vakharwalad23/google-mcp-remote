@@ -4,16 +4,16 @@
     "": {
       "name": "google-mcp-remote",
       "dependencies": {
-        "@cloudflare/workers-oauth-provider": "latest",
-        "@modelcontextprotocol/sdk": "latest",
-        "agents": "latest",
-        "googleapis": "latest",
-        "hono": "latest",
+        "@cloudflare/workers-oauth-provider": "0.0.5",
+        "@modelcontextprotocol/sdk": "^1.10.2",
+        "agents": "^0.0.75",
+        "googleapis": "^148.0.0",
+        "hono": "^4.7.7",
       },
       "devDependencies": {
-        "@cloudflare/workers-types": "latest",
-        "@types/node": "latest",
-        "wrangler": "latest",
+        "@cloudflare/workers-types": "^4.20250427.0",
+        "@types/node": "^22.15.2",
+        "wrangler": "^4.13.2",
       },
     },
   },
@@ -40,7 +40,7 @@
 
     "@cloudflare/workerd-windows-64": ["@cloudflare/workerd-windows-64@1.20250424.0", "", { "os": "win32", "cpu": "x64" }, "sha512-uwzZhNaKjJKq6NGFPd0hQWecpf5OTZCrlWKQZm4kkufZ7uIzkn5t3kOjh/J3L9puM/GvIPxCiDUE2aG66P6YxA=="],
 
-    "@cloudflare/workers-oauth-provider": ["@cloudflare/workers-oauth-provider@0.0.3", "", { "dependencies": { "@cloudflare/workers-types": "^4.20250311.0" } }, "sha512-KxDYmfb30XSYRkj3FYmN/FZPBIXv5w6hlE8vcukMI9fx9PfxIeTM3eRkrJU0kac6XKPAvkx7vW6anLkCh1PFow=="],
+    "@cloudflare/workers-oauth-provider": ["@cloudflare/workers-oauth-provider@0.0.5", "", { "dependencies": { "@cloudflare/workers-types": "^4.20250311.0" } }, "sha512-t1x5KAzsubCvb4APnJ93z407X1x7SGj/ga5ziRnwIb/iLy4PMkT/hgd1y5z7Bbsdy5Fy6mywhCP4lym24bX66w=="],
 
     "@cloudflare/workers-types": ["@cloudflare/workers-types@4.20250427.0", "", {}, "sha512-5RLld1Bf5W2EE06bnE5qdicx1AtfF3LT+YD93cR32yKDNridHeBriWO8/pMZG7JmURdHEwyXyIV4gtdPzDPNdw=="],
 
@@ -475,8 +475,6 @@
     "zod-to-json-schema": ["zod-to-json-schema@3.24.5", "", { "peerDependencies": { "zod": "^3.24.1" } }, "sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g=="],
 
     "@ai-sdk/provider-utils/nanoid": ["nanoid@3.3.11", "", { "bin": { "nanoid": "bin/nanoid.cjs" } }, "sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w=="],
-
-    "@cloudflare/workers-oauth-provider/@cloudflare/workers-types": ["@cloudflare/workers-types@4.20250412.0", "", {}, "sha512-ukQE+TRc5HNkM6VvGfTNC9x54TLQKjdcm624F8Qh1ZRe0iJrW2/j1eYgvJABJPexDousYCR7VzCGteShLcBJYQ=="],
 
     "agents/zod": ["zod@3.24.3", "", {}, "sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg=="],
 

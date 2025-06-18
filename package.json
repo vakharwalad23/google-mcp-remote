@@ -6,7 +6,7 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@cloudflare/workers-oauth-provider": "^0.0.3",
+    "@cloudflare/workers-oauth-provider": "^0.0.5",
     "@modelcontextprotocol/sdk": "^1.10.2",
     "agents": "^0.0.75",
     "googleapis": "^148.0.0",
