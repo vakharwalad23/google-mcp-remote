@@ -3,7 +3,6 @@ import type {
   OAuthHelpers,
 } from "@cloudflare/workers-oauth-provider";
 import { Hono } from "hono";
-import { env } from "cloudflare:workers";
 import {
   fetchUpstreamAuthToken,
   getUpstreamAuthorizeUrl,
@@ -28,9 +27,25 @@ interface GoogleUserInfo {
 
 const app = new Hono<{ Bindings: Env & { OAUTH_PROVIDER: OAuthHelpers } }>();
 
+app.get("/", (c) => {
+  return c.json({
+    name: "Cloudflare Google MCP Server",
+    version: "1.0.0",
+    status: "running",
+    endpoints: {
+      sse: "/sse",
+      mcp: "/mcp",
+      authorize: "/authorize",
+      token: "/token",
+      register: "/register",
+    },
+  });
+});
+
 async function redirectToGoogle(
   request: Request,
   oauthReqInfo: AuthRequest,
+  envBindings: Env,
   headers: Record<string, string> = {}
 ) {
   const scopes = [
@@ -52,7 +67,7 @@ async function redirectToGoogle(
       location: getUpstreamAuthorizeUrl({
         upstream_url: "https://accounts.google.com/o/oauth2/v2/auth",
         scope: scopes,
-        client_id: env.GOOGLE_OAUTH_CLIENT_ID,
+        client_id: envBindings.GOOGLE_OAUTH_CLIENT_ID,
         redirect_uri: new URL("/callback", request.url).href,
         state: btoa(JSON.stringify(oauthReqInfo)),
       }),
@@ -73,7 +88,7 @@ app.get("/authorize", async (c) => {
       c.env.COOKIE_ENCRYPTION_KEY
     )
   ) {
-    return redirectToGoogle(c.req.raw, oauthReqInfo);
+    return redirectToGoogle(c.req.raw, oauthReqInfo, c.env);
   }
   return renderApprovalDialog(c.req.raw, {
     client: await c.env.OAUTH_PROVIDER.lookupClient(clientId),
@@ -91,13 +106,13 @@ app.post("/authorize", async (c) => {
   // Validates form submission, extracts state, and generates Set-Cookie headers to skip approval dialog next time
   const { state, headers } = await parseRedirectApproval(
     c.req.raw,
-    env.COOKIE_ENCRYPTION_KEY
+    c.env.COOKIE_ENCRYPTION_KEY
   );
   if (!state.oauthReqInfo) {
     return c.text("Invalid request", 400);
   }
 
-  return redirectToGoogle(c.req.raw, state.oauthReqInfo, headers);
+  return redirectToGoogle(c.req.raw, state.oauthReqInfo, c.env, headers);
 });
 
 app.get("/callback", async (c) => {
